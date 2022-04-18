@@ -181,6 +181,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
+
 // Update User Profile
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
   const newUserData = {
@@ -193,17 +194,17 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
     const imageId = user.avatar.public_id;
 
-    await cloudinary.v2.uploader.destroy(imageId);
+    // await cloudinary.v2.uploader.destroy(imageId);
 
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-      folder: "avatars",
-      width: 150,
-      crop: "scale",
-    });
-    newUserData.avatar = {
-      public_id: myCloud.public_id,
-      url: myCloud.secure_url,
-    };
+    // const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+    //   folder: "avatars",
+    //   width: 150,
+    //   crop: "scale",
+    // });
+    // newUserData.avatar = {
+    //   public_id: myCloud.public_id,
+    //   url: myCloud.secure_url,
+    // };
   }
 
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
@@ -216,6 +217,9 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     success: true,
   });
 });
+
+
+
 
 // Get All users ---Admin
 exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
@@ -264,9 +268,9 @@ exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
-  const imageId = user.avatar.public_id;
+//   const imageId = user.avatar.public_id;
 
-  await cloudinary.v2.uploader.destroy(imageId);
+//   await cloudinary.v2.uploader.destroy(imageId);
 
   if (!user) {
     return next(new ErrorHandler("User is not found with this id", 400));
