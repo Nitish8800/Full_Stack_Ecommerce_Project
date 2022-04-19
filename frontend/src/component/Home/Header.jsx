@@ -99,11 +99,12 @@ const Header = () => {
             <strong
               style={{
                 padding: "0px 5px",
+                cursor: "pointer",
               }}
             >
               Email:
             </strong>{" "}
-            temp123@gmail.com
+            nitishdev021@gmail.com
           </span>
         </div>
       </div>

@@ -58,6 +58,12 @@ input[type="number"] {
   text-align: center;
 }
 
+.cartBtn:hover{
+  color:#ce0202 ;
+  background-color: #e8f07b;
+  
+}
+
 @media screen and (max-width: 600px) {
 .varse__2 {
   width: 100%;
