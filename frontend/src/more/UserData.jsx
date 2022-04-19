@@ -7,7 +7,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Support from "@material-ui/icons/ReportProblem"
+import Support from "@material-ui/icons/ReportProblem";
 import HeartIcon from "@material-ui/icons/FavoriteBorder";
 import HeartActiveIcon from "@material-ui/icons/Favorite";
 import HomeIcon from "@material-ui/icons/Home";
@@ -15,26 +15,24 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/userAction";
 import { useRef } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 const UserData = ({ user }) => {
-
   const { cartItems } = useSelector((state) => state.cart);
   const { favouriteItems } = useSelector((state) => state.favourite);
 
   const [open, setOpen] = useState(false);
   const history = useHistory();
-  
+
   const scroolEffect = useRef(null);
 
-  window.addEventListener("scroll", () =>{
-    if(window.pageYOffset > 100){
-        document.querySelector(".speedDial").classList.add("active");
-    }
-    else{
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 100) {
+      document.querySelector(".speedDial").classList.add("active");
+    } else {
       document.querySelector(".speedDial").classList.remove("active");
     }
-  })
+  });
 
   const dispatch = useDispatch();
 
@@ -44,23 +42,23 @@ const UserData = ({ user }) => {
     {
       icon: (
         <ShoppingCartIcon
-        style={{
-         color: cartItems.length === 0 ? "" : "tomato",
-        }}
+          style={{
+            color: cartItems.length === 0 ? "" : "tomato",
+          }}
         />
       ),
       name: `Cart (${cartItems.length})`,
       func: cart,
     },
     {
-      icon:
-          <HeartIcon 
+      icon: (
+        <HeartIcon
           style={{
             color: favouriteItems.length === 0 ? "" : "tomato",
-           }}
-          />,
-      name:
-      `Favourite (${favouriteItems.length})`,
+          }}
+        />
+      ),
+      name: `Favourite (${favouriteItems.length})`,
       func: favourite,
     },
     { icon: <PersonIcon />, name: "Profile", func: account },
@@ -126,10 +124,10 @@ const UserData = ({ user }) => {
         icon={
           <img
             className="speedDialIcon"
-            src={user.avatar.url ? user.avatar.url : ("/profile.png")}
+            src={user.avatar.url ? user.avatar.url : "/profile.png"}
             alt="Profile"
             style={{
-              position:"fixed"
+              position: "fixed",
             }}
           />
         }
@@ -144,7 +142,7 @@ const UserData = ({ user }) => {
           />
         ))}
       </SpeedDial>
-      <ToastContainer 
+      <ToastContainer
         position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -154,7 +152,7 @@ const UserData = ({ user }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        />
+      />
     </>
   );
 };

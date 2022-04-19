@@ -1,11 +1,12 @@
 .productListContainer {
-    width: 100%;
+    width: 94%;
     box-sizing: border-box;
     background-color: rgb(255, 255, 255);
     border-left: 1px solid rgba(0, 0, 0, 0.158);
     display: flex;
     flex-direction: column;
     height: 100vh;
+  
   }
   .MuiDataGrid-columnHeader{
     background: #3BB77E;
@@ -17,7 +18,7 @@
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.637);
     transition: all 0.5s;
-    margin: 2rem;
+    margin: 1.5rem;
     text-align: center;
   }
   

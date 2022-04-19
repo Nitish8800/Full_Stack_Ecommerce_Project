@@ -47,15 +47,15 @@ import ResetPassword from "../../frontend/src/component/user/ResetPassword";
 import Notfound from "../../frontend/src/more/Notfound";
 
 function App() {
-  // const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
-  // const [stripeApiKey, setStripeApiKey] = useState("");
+  const [stripeApiKey, setStripeApiKey] = useState("");
 
-  // async function getStripeApiKey() {
-  //   const { data } = await axios.get("/api/v2/stripeapikey");
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v2/stripeapikey");
 
-  //   setStripeApiKey(data.stripeApiKey);
-  // }
+    setStripeApiKey(data.stripeApiKey);
+  }
 
   useEffect(() => {
     WebFont.load({
@@ -64,19 +64,19 @@ function App() {
       },
     });
 
-    // Store.dispatch(loadUser());
+    Store.dispatch(loadUser());
 
-    // getStripeApiKey();
+    getStripeApiKey();
   }, []);
   return (
     <Router>
-      {/* {isAuthenticated && <UserData user={user} />}
+      {isAuthenticated && <UserData user={user} />}
 
       {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
           <ProtectedRoute exact path="/process/payment" component={Payment} />
         </Elements>
-      )} */}
+      )}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/product/:id" component={ProductDetails} />
@@ -102,7 +102,7 @@ function App() {
         <ProtectedRoute exact path="/success" component={Success} />
         <ProtectedRoute exact path="/orders" component={MyOrder} />
         <ProtectedRoute exact path="/order/:id" component={MyOrderDetails} />
-        {/*     <ProtectedRoute
+        <ProtectedRoute
           isAdmin={true}
           exact
           path="/dashboard"
@@ -155,13 +155,13 @@ function App() {
           exact
           path="/admin/reviews"
           component={AllReviews}
-        /> */}
+        />
 
-        {/* <Route
+        <Route
           component={
             window.location.pathname === "/process/payment" ? null : Notfound
           }
-        /> */}
+        />
       </Switch>
     </Router>
   );

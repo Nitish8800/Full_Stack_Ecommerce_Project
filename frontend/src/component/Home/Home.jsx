@@ -118,7 +118,7 @@ const Home = () => {
                 <button
                   type="submit"
                   style={{
-                    width: "150px",
+                    width: "180px",
                     height: "50px",
                     border: "none",
                     background: "#3BB77E",

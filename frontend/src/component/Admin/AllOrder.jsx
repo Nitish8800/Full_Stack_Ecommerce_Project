@@ -49,13 +49,13 @@ const AllOrder = ({ history }) => {
   }, [dispatch, error, deleteError, history, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+    { field: "id", headerName: "Order ID", minWidth: 260, flex: 0.5 },
 
     {
       field: "status",
       headerName: "Status",
       minWidth: 150,
-      flex: 0.5,
+      flex: 0.3,
       cellClassName: (params) => {
         return params.getValue(params.id, "status") === "Delivered"
           ? "greenColor"
@@ -66,16 +66,16 @@ const AllOrder = ({ history }) => {
       field: "itemsQty",
       headerName: "Items Qty",
       type: "number",
-      minWidth: 150,
-      flex: 0.4,
+      minWidth: 90,
+      flex: 0.3,
     },
 
     {
       field: "amount",
       headerName: "Amount",
       type: "number",
-      minWidth: 270,
-      flex: 0.5,
+      minWidth: 170,
+      flex: 0.3,
     },
 
     {

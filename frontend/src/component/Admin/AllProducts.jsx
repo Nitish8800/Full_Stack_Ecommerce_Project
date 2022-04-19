@@ -3,9 +3,9 @@ import { DataGrid } from "@material-ui/data-grid";
 import "./AllProducts.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  getAdminProduct,
   clearErrors,
   deleteProduct,
-  getAdminProduct,
 } from "../../actions/ProductActions";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
@@ -13,56 +13,55 @@ import MetaData from "../../more/Metadata";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
-import { ToastContainer, toast } from 'react-toastify';
 import { DELETE_PRODUCT_RESET } from "../../constans/ProductConstans";
+import { ToastContainer, toast } from "react-toastify";
 
+const AllProducts = ({ history }) => {
+  const dispatch = useDispatch();
 
-const AllProducts = ({history}) => {
+  const { error, products } = useSelector((state) => state.products);
 
-const dispatch = useDispatch();
-
-const { error, products } = useSelector((state) => state.products);
-
-const { error: deleteError, isDeleted } = useSelector(
-    (state) => state.deleteProduct
-  );
+  const {
+    error: deleteError,
+    isDeleted,
+    message,
+  } = useSelector((state) => state.deleteProduct);
 
   const deleteProductHandler = (id) => {
     dispatch(deleteProduct(id));
   };
 
-useEffect(() => {
+  useEffect(() => {
     if (error) {
-      alert(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     if (deleteError) {
-        toast.error(deleteError);
-        dispatch(clearErrors());
-      }
-  
-      if (isDeleted) {
-        toast.success("Product Deleted Successfully");
-        history.push("/dashboard");
-        dispatch({ type: DELETE_PRODUCT_RESET });
-      }
+      toast.error(deleteError);
+      dispatch(clearErrors());
+    }
+    if (isDeleted) {
+      toast.success("Product Deleted Successfully");
+      history.push("/admin/products");
+      dispatch({ type: DELETE_PRODUCT_RESET });
+    }
     dispatch(getAdminProduct());
-  }, [dispatch, alert, error, history]);
+  }, [dispatch, error, deleteError, history, isDeleted, message]);
 
-const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+  const columns = [
+    { field: "id", headerName: "Product ID", minWidth: 260, flex: 0.5 },
 
     {
       field: "name",
       headerName: "Name",
-      minWidth: 350,
-      flex: 1,
+      minWidth: 50,
+      flex: 0.3,
     },
     {
       field: "stock",
       headerName: "Stock",
       type: "number",
-      minWidth: 150,
+      minWidth: 10,
       flex: 0.3,
     },
 
@@ -89,7 +88,7 @@ const columns = [
             </Link>
 
             <Button
-            onClick={() =>
+              onClick={() =>
                 deleteProductHandler(params.getValue(params.id, "id"))
               }
             >
@@ -113,8 +112,8 @@ const columns = [
       });
     });
 
-    return (
-       <Fragment>
+  return (
+    <Fragment>
       <MetaData title={`ALL PRODUCTS - Admin`} />
 
       <div className="dashboard">
@@ -132,7 +131,7 @@ const columns = [
           />
         </div>
       </div>
-      <ToastContainer 
+      <ToastContainer
         position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -142,9 +141,9 @@ const columns = [
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        />
+      />
     </Fragment>
-    )
-}
+  );
+};
 
-export default AllProducts
+export default AllProducts;

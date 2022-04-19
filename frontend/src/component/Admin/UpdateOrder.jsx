@@ -3,23 +3,26 @@ import MetaData from "../../more/Metadata";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import SideBar from "./Sidebar";
+import { useSelector, useDispatch } from "react-redux";
+import Loading from "../../more/Loader";
+import AccountTreeIcon from "@material-ui/icons/AccountTree";
+import { Button } from "@material-ui/core";
 import {
   getOrderDetails,
   clearErrors,
   updateOrder,
 } from "../../actions/OrderAction";
-import { useSelector, useDispatch } from "react-redux";
-import Loading from "../../more/Loader";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import { Button } from "@material-ui/core";
 import { UPDATE_ORDER_RESET } from "../../constans/OrderConstans";
 import "./UpdateOrder.css";
-import { ToastContainer, toast } from 'react-toastify';
-
+import { ToastContainer, toast } from "react-toastify";
 
 const UpdateOrder = ({ history, match }) => {
-  const { order, error, loading } = useSelector((state) => state.myOrderDetails);
-  const { error: updateError, isUpdated } = useSelector((state) => state.deleteOrder);
+  const { order, error, loading } = useSelector(
+    (state) => state.myOrderDetails
+  );
+  const { error: updateError, isUpdated } = useSelector(
+    (state) => state.deleteOrder
+  );
 
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
@@ -93,9 +96,11 @@ const UpdateOrder = ({ history, match }) => {
                   <Typography>Payment</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
-                      <p style={{
-                          color:"green"
-                      }}>
+                      <p
+                        style={{
+                          color: "green",
+                        }}
+                      >
                         PAID
                       </p>
                     </div>
@@ -181,7 +186,7 @@ const UpdateOrder = ({ history, match }) => {
           )}
         </div>
       </div>
-      <ToastContainer 
+      <ToastContainer
         position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -191,7 +196,7 @@ const UpdateOrder = ({ history, match }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        />
+      />
     </Fragment>
   );
 };

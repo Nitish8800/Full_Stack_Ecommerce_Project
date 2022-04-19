@@ -104,7 +104,7 @@ const Header = () => {
             >
               Email:
             </strong>{" "}
-            nitishdev021@gmail.com
+            nestcustomercare@gmail.com
           </span>
         </div>
       </div>

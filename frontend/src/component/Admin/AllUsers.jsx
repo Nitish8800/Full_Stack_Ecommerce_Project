@@ -10,10 +10,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearErrors, deleteUser } from "../../actions/userAction";
 import { DELETE_USER_RESET } from "../../constans/userContans";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 const AllUsers = ({ history }) => {
-
   const dispatch = useDispatch();
 
   const { error, users } = useSelector((state) => state.allUsers);
@@ -46,22 +45,22 @@ const AllUsers = ({ history }) => {
     }
 
     dispatch(getAllUsers());
-  }, [dispatch, alert, error, deleteError, history, isDeleted, message]);
+  }, [dispatch, error, deleteError, history, isDeleted, message]);
 
   const columns = [
-    { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },
+    { field: "id", headerName: "User ID", minWidth: 120, flex: 0.6 },
 
     {
       field: "email",
       headerName: "Email",
-      minWidth: 200,
-      flex: 1,
+      minWidth: 150,
+      flex: 0.6,
     },
     {
       field: "name",
       headerName: "Name",
-      minWidth: 150,
-      flex: 0.5,
+      minWidth: 80,
+      flex: 0.2,
     },
 
     {
@@ -71,7 +70,7 @@ const AllUsers = ({ history }) => {
       minWidth: 150,
       flex: 0.3,
       cellClassName: (params) => {
-        return params.getValue(params.id, "role") === ("admin")
+        return params.getValue(params.id, "role") === "admin"
           ? "greenColor"
           : "redColor";
       },
@@ -135,7 +134,7 @@ const AllUsers = ({ history }) => {
           />
         </div>
       </div>
-      <ToastContainer 
+      <ToastContainer
         position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -145,7 +144,7 @@ const AllUsers = ({ history }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        />
+      />
     </Fragment>
   );
 };
