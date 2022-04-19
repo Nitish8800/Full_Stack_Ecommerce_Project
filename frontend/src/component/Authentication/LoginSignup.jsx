@@ -63,7 +63,6 @@ const LoginSignup = ({ history, location }) => {
           setAvatar(reader.result);
         }
       };
-
       reader.readAsDataURL(e.target.files[0]);
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
@@ -199,7 +198,7 @@ const LoginSignup = ({ history, location }) => {
           <div></div>
           <ToastContainer
             position="bottom-center"
-            autoClose={5000}
+            autoClose={3000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
