@@ -133,7 +133,7 @@ const Footer = () => {
           <Link to="/creator">
             <h3>Seller Rules</h3>
           </Link>
-          <Link to="/Products">
+          <Link to="/products">
             <h3>View Shop</h3>
           </Link>
           <Link to="/support">

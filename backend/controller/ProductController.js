@@ -6,8 +6,6 @@ const cloudinary = require("cloudinary");
 
 // create Product --Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-  const product = await Product.create(req.body);
-
   let images = [];
 
   if (typeof req.body.images === "string") {
@@ -31,6 +29,8 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 
   req.body.images = imagesLinks;
   req.body.user = req.user.id;
+
+  const product = await Product.create(req.body);
 
   res.status(201).json({
     success: true,

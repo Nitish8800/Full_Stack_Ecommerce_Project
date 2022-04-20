@@ -8,7 +8,6 @@ import { clearErrors, getProduct } from "../../actions/ProductActions";
 import Pagination from "react-js-pagination";
 import "./Product.css";
 import Typography from "@material-ui/core/Typography";
-// import { useAlert } from "react-alert";
 import MetaData from "../../more/Metadata";
 import BottomTab from "../../more/BottomTab";
 
@@ -22,8 +21,6 @@ const categories = [
   "Sports",
   "Others",
 ];
-
-
 
 const Products = ({ match }) => {
   const dispatch = useDispatch();

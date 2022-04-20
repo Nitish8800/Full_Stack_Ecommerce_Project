@@ -1,4 +1,4 @@
-ul.pagination{
+.pagination{
     display: flex;
     align-items: center;
     padding: 0;
@@ -36,7 +36,7 @@ ul.pagination{
 .pageLinkActive{
     color: white;
 }
-li.category-link{
+.category-link{
     list-style: none;
     font-family: Roboto;
     cursor: pointer;

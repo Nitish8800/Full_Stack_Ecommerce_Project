@@ -40,7 +40,7 @@ const UpdateProduct = ({ history, match }) => {
 
   const categories = [
     "Personal",
-    "cloth",
+    "Cloth",
     "Ladies Cloth",
     "Shoes",
     "Food",

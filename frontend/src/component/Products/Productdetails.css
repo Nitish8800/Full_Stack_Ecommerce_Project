@@ -9,7 +9,7 @@ input:checked ~ label{
 input{
   outline: none;
 }
-img.CarouselImage{
+.CarouselImage{
   width: 350px;
   height: 350px;
   object-fit: contain;
@@ -95,7 +95,7 @@ line-height: 1.9;}
   height: 30px!important;
   width: 135px!important;
 }
-button.Home__button {font-size: 2.1vmax!important;}
+.Home__button {font-size: 2.1vmax!important;}
 .CarouselItem {
   width: 100%;
   height: 100%;

@@ -30,7 +30,7 @@ const CreateProduct = ({ history }) => {
 
   const categories = [
     "Personal",
-    "cloth",
+    "Cloth",
     "Ladies Cloth",
     "Gift",
     "Food",

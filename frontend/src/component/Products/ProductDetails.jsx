@@ -58,7 +58,7 @@ const ProductDetails = ({ match, history }) => {
       dispatch(clearErrors());
     }
     dispatch(getProductDetails(match.params.id));
-  }, [dispatch, match.params.id, error, alert]);
+  }, [dispatch, match.params.id, error]);
 
   const options = {
     value: product.ratings,
@@ -136,7 +136,7 @@ const ProductDetails = ({ match, history }) => {
                 >
                   <h1>{`$${product.price}`}</h1>
                   <h1 className="discountPrice">
-                    {product.offerPrice > 0 ? `$${product.offerPrice}` : ""}
+                    {product.offerPrice > 0 ? `${product.offerPrice}%` : ""}
                   </h1>
                 </div>
                 <div className="detailsBlock-3-1">
