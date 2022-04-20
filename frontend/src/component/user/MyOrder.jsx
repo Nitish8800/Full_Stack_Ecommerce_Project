@@ -83,7 +83,7 @@ const MyOrder = () => {
     }
 
     dispatch(myOrders());
-  }, [dispatch, alert, error]);
+  }, [dispatch, error]);
 
   return (
     <Fragment>

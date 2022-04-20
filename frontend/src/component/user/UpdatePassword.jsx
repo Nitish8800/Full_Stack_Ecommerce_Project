@@ -2,18 +2,17 @@ import React, { Fragment, useState, useEffect } from "react";
 import "./UpdatePassword.css";
 import Loading from "../../more/Loader";
 import { useDispatch, useSelector } from "react-redux";
-// import { useAlert } from "react-alert";
+
 import MetaData from "../../more/Metadata";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { clearErrors, updatePassword } from "../../actions/userAction";
 import { UPDATE_PASSWORD_RESET } from "../../constans/userContans";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const UpdatePassword = ({ history }) => {
   const dispatch = useDispatch();
-  //   const alert = useAlert();
 
   const { error, isUpdated, loading } = useSelector((state) => state.profile);
 
@@ -46,7 +45,7 @@ const UpdatePassword = ({ history }) => {
         type: UPDATE_PASSWORD_RESET,
       });
     }
-  }, [dispatch, error, alert, history, isUpdated]);
+  }, [dispatch, error, history, isUpdated]);
 
   return (
     <>

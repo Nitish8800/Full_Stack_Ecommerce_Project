@@ -14,7 +14,7 @@ import BottomTab from "../../more/BottomTab";
 
 const categories = [
   "Personal",
-  "cloth",
+  "Cloth",
   "Ladies Cloth",
   "Gift",
   "Food",
@@ -22,6 +22,8 @@ const categories = [
   "Sports",
   "Others",
 ];
+
+
 
 const Products = ({ match }) => {
   const dispatch = useDispatch();
@@ -45,7 +47,7 @@ const Products = ({ match }) => {
       dispatch(clearErrors());
     }
     dispatch(getProduct(keyword, currentPage, category));
-  }, [dispatch, keyword, currentPage, category, alert, error]);
+  }, [dispatch, keyword, currentPage, category, error]);
 
   return (
     <>
@@ -141,30 +143,32 @@ const Products = ({ match }) => {
               )}
             </div>
 
-            <div
-              className="pagination__box"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: "6vmax",
-              }}
-            >
-              <Pagination
-                activePage={currentPage}
-                itemsCountPerPage={resultPerPage}
-                totalItemsCount={productsCount}
-                onChange={setCurrentPageNo}
-                nextPageText="Next"
-                prevPageText="Prev"
-                firstPageText="First"
-                lastPageText="Last"
-                itemClass="page-item"
-                linkClass="page-link"
-                activeClass="pageItemActive"
-                activeLinkClass="pageLinkActive"
-              />
-            </div>
+            {resultPerPage < productsCount && (
+              <div
+                className="pagination__box"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "6vmax",
+                }}
+              >
+                <Pagination
+                  activePage={currentPage}
+                  itemsCountPerPage={resultPerPage}
+                  totalItemsCount={productsCount}
+                  onChange={setCurrentPageNo}
+                  nextPageText="Next"
+                  prevPageText="Prev"
+                  firstPageText="First"
+                  lastPageText="Last"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                  activeClass="pageItemActive"
+                  activeLinkClass="pageLinkActive"
+                />
+              </div>
+            )}
           </div>
           <Footer />
           <BottomTab />
