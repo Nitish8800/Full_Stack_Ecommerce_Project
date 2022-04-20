@@ -6,31 +6,31 @@ const cloudinary = require("cloudinary");
 
 // create Product --Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-  //   let images = [];
-
-  //   if (typeof req.body.images === "string") {
-  //     images.push(req.body.images);
-  //   } else {
-  //     images = req.body.images;
-  //   }
-
-  //   const imagesLinks = [];
-
-  //   for (let i = 0; i < images.length; i++) {
-  //     const result = await cloudinary.v2.uploader.upload(images[i], {
-  //       folder: "products",
-  //     });
-
-  //     imagesLinks.push({
-  //       public_id: result.public_id,
-  //       url: result.secure_url,
-  //     });
-  //   }
-
-  //   req.body.images = imagesLinks;
-  //   req.body.user = req.user.id;
-
   const product = await Product.create(req.body);
+
+  let images = [];
+
+  if (typeof req.body.images === "string") {
+    images.push(req.body.images);
+  } else {
+    images = req.body.images;
+  }
+
+  const imagesLinks = [];
+
+  for (let i = 0; i < images.length; i++) {
+    const result = await cloudinary.v2.uploader.upload(images[i], {
+      folder: "products",
+    });
+
+    imagesLinks.push({
+      public_id: result.public_id,
+      url: result.secure_url,
+    });
+  }
+
+  req.body.images = imagesLinks;
+  req.body.user = req.user.id;
 
   res.status(201).json({
     success: true,
@@ -240,74 +240,3 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     success: true,
   });
 });
-
-// const Product = require("../models/ProductModel.js");
-// const ErrorHandler = require("../utils/ErrorHandler.js");
-
-// // create Product --Admin
-// exports.createProduct = async (req, res) => {
-//   let product = await Product.create(req.body);
-
-//   res.status(201).json({
-//     success: true,
-//     product,
-//   });
-// };
-
-// // get All Products
-// exports.getAllProducts = async (req, res) => {
-//   let products = await Product.find();
-
-//   res.status(200).json({
-//     success: true,
-//     products,
-//   });
-// };
-
-// // Update Product ---Admin
-// exports.updateProduct = async (req, res, next) => {
-//   let product = await Product.findById(req.params.id);
-//   if (!product) {
-//     return next(new ErrorHandler("Product is not found with this id", 404));
-//   }
-
-//   product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-//     new: true,
-//     runValidators: true,
-//     useUnified: false,
-//   });
-//   res.status(200).json({
-//     success: true,
-//     product,
-//   });
-// };
-
-// // delete Product
-// exports.deleteProduct = async (req, res, next) => {
-//   let product = await Product.findById(req.params.id);
-
-//   if (!product) {
-//     return next(new ErrorHandler("Product is not found with this id", 404));
-//   }
-
-//   await product.remove();
-
-//   res.status(200).json({
-//     success: true,
-//     message: "Product deleted succesfully",
-
-//   });
-// };
-
-// // single Product details
-// exports.getSingleProduct = async (req, res, next) => {
-//   let product = await Product.findById(req.params.id);
-//   if (!product) {
-//     return next(new ErrorHandler("Product is not found with this id", 404));
-//   }
-
-//   res.status(200).json({
-//     success: true,
-//     product,
-//   });
-// };
