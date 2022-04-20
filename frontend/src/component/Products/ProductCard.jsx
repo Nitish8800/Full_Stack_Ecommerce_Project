@@ -40,7 +40,7 @@ const ProductCard = ({ product }) => {
             >
               {product.offerPrice > 0 ? `${product.offerPrice}%` : ""}
             </h1>
-            <span className="p__Price">{`$${product.price}`}</span>
+            <span className="p__Price">{`$${product.price}.00`}</span>
           </div>
         </div>
       </Link>

@@ -5,23 +5,26 @@ import MetaData from "../../more/Metadata";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { getOrderDetails, clearErrors } from "../../actions/OrderAction";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Loading from "../../more/Loader";
 import BottomTab from "../../more/BottomTab";
 
 const MyOrderDetails = ({ match }) => {
-  const { order, error, loading } = useSelector((state) => state.myOrderDetails);
+  const { order, error, loading } = useSelector(
+    (state) => state.myOrderDetails
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
     dispatch(getOrderDetails(match.params.id));
-  }, [dispatch, alert, error, match.params.id]);
+  }, [dispatch, error, match.params.id]);
   return (
     <>
       {loading ? (
@@ -63,18 +66,19 @@ const MyOrderDetails = ({ match }) => {
                         ? "greenColor"
                         : "redColor"
                     }
-                  >                  
-                  </p>
-                  <p style={{
-                      color:"green"
-                  }}>
-                  PAID
+                  ></p>
+                  <p
+                    style={{
+                      color: "green",
+                    }}
+                  >
+                    PAID
                   </p>
                 </div>
 
                 <div>
                   <p>Amount:</p>
-                  <span>$ {order.totalPrice && order.totalPrice}</span>
+                  <span>$ {order.totalPrice && order.totalPrice}.00</span>
                 </div>
               </div>
 
@@ -97,7 +101,6 @@ const MyOrderDetails = ({ match }) => {
             <div className="orderDetailsCartItems">
               <Typography>Order Items:</Typography>
               <div className="orderDetailsCartItemsContainer">
-
                 {order.orderItems &&
                   order.orderItems.map((item) => (
                     <div key={item.Offer}>
@@ -107,12 +110,10 @@ const MyOrderDetails = ({ match }) => {
                       </Link>{" "}
                       <span>
                         {item.quantity} X ${item.price} ={" "}
-                        <b>${item.price * item.quantity}</b>
+                        <b>${item.price * item.quantity}.00</b>
                       </span>
                     </div>
                   ))}
-
-
               </div>
             </div>
           </div>

@@ -9,7 +9,7 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Support from "@material-ui/icons/ReportProblem";
 import HeartIcon from "@material-ui/icons/FavoriteBorder";
-import HeartActiveIcon from "@material-ui/icons/Favorite";
+// import HeartActiveIcon from "@material-ui/icons/Favorite";
 import HomeIcon from "@material-ui/icons/Home";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

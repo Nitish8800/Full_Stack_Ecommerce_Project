@@ -21,18 +21,18 @@ import BottomTab from "../../more/BottomTab";
 import Loading from "../../more/Loader";
 
 const ProductDetails = ({ match, history }) => {
-  const dispatch = useDispatch();
+  let dispatch = useDispatch();
 
-  const { product, loading, error } = useSelector(
+  let { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
 
-  const { isAuthenticated } = useSelector((state) => state.user);
+  let { isAuthenticated } = useSelector((state) => state.user);
 
-  const reviewSubmitHandler = (e) => {
+  let reviewSubmitHandler = (e) => {
     e.preventDefault();
 
-    const myForm = new FormData();
+    let myForm = new FormData();
 
     myForm.set("rating", rating);
     myForm.set("comment", comment);
@@ -41,7 +41,6 @@ const ProductDetails = ({ match, history }) => {
     {
       isAuthenticated !== true ? history.push(`/login?redirect=/`) : <></>;
     }
-
     dispatch(newReview(myForm));
 
     {
@@ -54,37 +53,37 @@ const ProductDetails = ({ match, history }) => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     dispatch(getProductDetails(match.params.id));
   }, [dispatch, match.params.id, error]);
 
-  const options = {
+  let options = {
     value: product.ratings,
     readOnly: true,
     precision: 0.5,
   };
 
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState("");
+  let [rating, setRating] = useState(0);
+  let [comment, setComment] = useState("");
 
   // Increase quantity
-  const [quantity, setQuantity] = useState(1);
+  let [quantity, setQuantity] = useState(1);
 
-  const increaseQuantity = () => {
+  let increaseQuantity = () => {
     if (product.Stock <= quantity) return toast.error("Product stock limited");
-    const qty = quantity + 1;
+    let qty = quantity + 1;
     setQuantity(qty);
   };
 
-  const decreaseQuantity = () => {
+  let decreaseQuantity = () => {
     if (1 >= quantity) return;
-    const qty = quantity - 1;
+    let qty = quantity - 1;
     setQuantity(qty);
   };
 
-  const addToCartHandler = () => {
+  let addToCartHandler = () => {
     if (product.Stock > 0) {
       dispatch(addItemsToCart(match.params.id, quantity));
       toast.success("Product Added to cart");
@@ -93,7 +92,7 @@ const ProductDetails = ({ match, history }) => {
     }
   };
 
-  const addToFavouriteHandler = () => {
+  let addToFavouriteHandler = () => {
     dispatch(addFavouriteItemsToCart(match.params.id, quantity));
     toast.success("Product Added to Favourites");
   };
@@ -134,7 +133,7 @@ const ProductDetails = ({ match, history }) => {
                     display: "flex",
                   }}
                 >
-                  <h1>{`$${product.price}`}</h1>
+                  <h1>{`$${product.price}.00`}</h1>
                   <h1 className="discountPrice">
                     {product.offerPrice > 0 ? `${product.offerPrice}%` : ""}
                   </h1>

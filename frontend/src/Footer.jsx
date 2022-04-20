@@ -10,6 +10,7 @@ const Footer = () => {
       {/* Footer 1st part */}
       <div className="footer1st">
         <img
+          alt="logo"
           src="http://wp.alithemes.com/html/nest/demo/assets/imgs/theme/logo.svg"
           style={{ cursor: "pointer" }}
         />
@@ -28,7 +29,6 @@ const Footer = () => {
           <strong>Address:</strong>
           <h6>110094 New Delhi, India</h6>
         </div>
-
         <div className="location flex py__10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,6 @@ const Footer = () => {
           <strong>Email:</strong>
           <h6> nestcustomercare@gmail.com</h6>
         </div>
-
         <div className="location flex py__10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +57,6 @@ const Footer = () => {
           <strong>Call us:</strong>
           <h6>+919654370542</h6>
         </div>
-
         <div className="location flex py__10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,19 +72,20 @@ const Footer = () => {
           <strong>Time:</strong>
           <h6>10:00 Am - 10:00 Pm (Everyday)</h6>
         </div>
-
         <div className="app">
           <h1>Install App</h1>
           <h6>From App Store or Google Play</h6>
           <div className="App__Image flex pointer">
             <Link to="/creator">
               <img
+                alt=""
                 src="http://wp.alithemes.com/html/nest/demo/assets/imgs/theme/app-store.jpg"
                 style={{ width: "150px", margin: "10px" }}
               />
             </Link>
             <Link to="/creator">
               <img
+                alt=""
                 src="http://wp.alithemes.com/html/nest/demo/assets/imgs/theme/google-play.jpg"
                 style={{ width: "150px", margin: "10px" }}
               />

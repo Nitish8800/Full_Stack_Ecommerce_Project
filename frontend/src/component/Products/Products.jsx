@@ -10,6 +10,8 @@ import "./Product.css";
 import Typography from "@material-ui/core/Typography";
 import MetaData from "../../more/Metadata";
 import BottomTab from "../../more/BottomTab";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const categories = [
   "Personal",
@@ -40,7 +42,7 @@ const Products = ({ match }) => {
 
   useEffect(() => {
     if (error) {
-      alert(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     dispatch(getProduct(keyword, currentPage, category));

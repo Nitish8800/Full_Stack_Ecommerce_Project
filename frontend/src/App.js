@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./component/Home/Home";
 import WebFont from "webfontloader";
 import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ProductDetails from "./component/Products/ProductDetails";
 import LoginSignup from "./component/Authentication/LoginSignup";
 import UserData from "./more/UserData";
@@ -69,7 +69,7 @@ function App() {
     getStripeApiKey();
   }, []);
   return (
-    <Router>
+    <BrowserRouter>
       {isAuthenticated && <UserData user={user} />}
 
       {stripeApiKey && (
@@ -79,12 +79,12 @@ function App() {
       )}
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/products" component={Products} />
+        <Route exact path="/products/:keyword" component={Products} />
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/login" component={LoginSignup} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/products" component={Products} />
         <Route exact path="/search" component={Search} />
-        <Route exact path="/products/:keyword" component={Products} />
         <Route exact path="/support" component={Support} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/favourites" component={Favourites} />
@@ -163,7 +163,7 @@ function App() {
           }
         />
       </Switch>
-    </Router>
+    </BrowserRouter>
   );
 }
 

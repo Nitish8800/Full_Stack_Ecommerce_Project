@@ -82,7 +82,7 @@ const Dashboard = () => {
           <div className="dashboardSummary">
             <div>
               <p>
-                Total Amount <br /> ${totalAmount}
+                Total Amount <br /> ${totalAmount}.00
               </p>
             </div>
             <div className="dashboardSummaryBox2">
