@@ -34,12 +34,13 @@ const ProductCard = ({ product }) => {
               style={{
                 fontSize: ".9vmax",
                 float: "right",
-                marginLeft: "3px",
+                marginLeft: "2px",
+                opacity: "1",
               }}
             >
               {product.offerPrice > 0 ? `${product.offerPrice}%` : ""}
             </h1>
-            <span className="p__Price">{`$ ${product.price}`}</span>
+            <span className="p__Price">{`$${product.price}`}</span>
           </div>
         </div>
       </Link>
