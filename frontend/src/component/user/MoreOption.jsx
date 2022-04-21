@@ -42,7 +42,7 @@ const MoreOption = ({ history }) => {
           padding: "10px",
           flexDirection: "column",
           marginBottom: "10vh",
-          display: "none",
+          // display: "none",
         }}
       >
         {isAuthenticated === false ? (
@@ -224,7 +224,7 @@ const MoreOption = ({ history }) => {
           </Link>
         )}
 
-        <Link to="/commingsoon">
+        <Link to="/creator">
           <div
             style={{
               display: "flex",
@@ -249,7 +249,7 @@ const MoreOption = ({ history }) => {
           </div>
         </Link>
 
-        <Link to="/commingsoon">
+        <Link to="/creator">
           <div
             style={{
               display: "flex",
@@ -276,7 +276,7 @@ const MoreOption = ({ history }) => {
         {isAuthenticated === false ? (
           ""
         ) : (
-          <Link to="/password/update">
+          <Link to="/me/update">
             <div
               style={{
                 display: "flex",
@@ -332,7 +332,7 @@ const MoreOption = ({ history }) => {
         {isAuthenticated === false ? (
           ""
         ) : (
-          <Link to="/me/update">
+          <Link to="/me/update/info">
             <div
               style={{
                 display: "flex",
@@ -454,6 +454,7 @@ const MoreOption = ({ history }) => {
             <span
               style={{
                 color: "#000",
+                cursor: "pointer",
               }}
             >
               Log Out
