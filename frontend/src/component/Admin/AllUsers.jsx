@@ -48,19 +48,19 @@ const AllUsers = ({ history }) => {
   }, [dispatch, error, deleteError, history, isDeleted, message]);
 
   const columns = [
-    { field: "id", headerName: "User ID", minWidth: 120, flex: 0.6 },
+    { field: "id", headerName: "User ID", minWidth: 80, flex: 0.4 },
 
     {
       field: "email",
       headerName: "Email",
-      minWidth: 150,
-      flex: 0.6,
+      minWidth: 130,
+      flex: 0.5,
     },
     {
       field: "name",
       headerName: "Name",
-      minWidth: 80,
-      flex: 0.2,
+      minWidth: 150,
+      flex: 0.4,
     },
 
     {

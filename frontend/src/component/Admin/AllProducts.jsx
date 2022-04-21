@@ -49,19 +49,19 @@ const AllProducts = ({ history }) => {
   }, [dispatch, error, deleteError, history, isDeleted, message]);
 
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 260, flex: 0.5 },
+    { field: "id", headerName: "Product ID", minWidth: 100, flex: 0.5 },
 
     {
       field: "name",
       headerName: "Name",
-      minWidth: 50,
-      flex: 0.3,
+      minWidth: 400,
+      flex: 0.9,
     },
     {
       field: "stock",
       headerName: "Stock",
       type: "number",
-      minWidth: 10,
+      minWidth: 40,
       flex: 0.3,
     },
 
@@ -69,15 +69,15 @@ const AllProducts = ({ history }) => {
       field: "price",
       headerName: "Price",
       type: "number",
-      minWidth: 270,
-      flex: 0.5,
+      minWidth: 20,
+      flex: 0.35,
     },
 
     {
       field: "actions",
       flex: 0.3,
       headerName: "Actions",
-      minWidth: 150,
+      minWidth: 50,
       type: "number",
       sortable: false,
       renderCell: (params) => {
