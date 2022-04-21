@@ -109,7 +109,7 @@ const Payment = ({ history }) => {
       toast.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, error, toast]);
+  }, [dispatch, error]);
 
   return (
     <>

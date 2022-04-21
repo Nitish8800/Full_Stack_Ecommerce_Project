@@ -69,7 +69,7 @@ const EditProfile = ({history}) => {
           type: UPDATE_PROFILE_RESET,
       })
     }
-  }, [dispatch, error, alert, history, isUpdated,user]);
+  }, [dispatch, error, history, isUpdated,user]);
 
 
     return (
