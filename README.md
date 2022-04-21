@@ -8,4 +8,4 @@ Some important website links: ** NODE JS https://nodejs.org/en/ ** REACT JS http
 =======================================    CONNECTS WITH ME    ======================================             
              INSTAGRAM: https://www.instagram.com/_niku_7827/  
              YOUTUBE  : https://www.linkedin.com/in/nitish-kumar-50a564205/
-             LINKEDIN : https://www.linkedin.com/in/nitish-kumar-50a564205/
+                   LINKEDIN : https://www.linkedin.com/in/nitish-kumar-50a564205/
