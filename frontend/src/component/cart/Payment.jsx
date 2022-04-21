@@ -1,4 +1,4 @@
-import React, {useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import CheckoutSteps from "./CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../../more/Metadata";
@@ -16,8 +16,8 @@ import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { createOrder, clearErrors } from "../../actions/OrderAction";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Payment = ({ history }) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -83,7 +83,7 @@ const Payment = ({ history }) => {
       if (result.error) {
         payBtn.current.disabled = false;
 
-        alert.error(result.error.message);
+        toast.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
           order.paymentInfo = {
@@ -100,16 +100,16 @@ const Payment = ({ history }) => {
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      alert.error(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, error, alert]);
+  }, [dispatch, error, toast]);
 
   return (
     <>
@@ -133,23 +133,23 @@ const Payment = ({ history }) => {
 
           <input
             type="submit"
-            value={`Pay - $ ${orderInfo && orderInfo.totalPrice}`}
+            value={`Pay - $${orderInfo && orderInfo.totalPrice}`}
             ref={payBtn}
             className="paymentFormBtn"
           />
         </form>
       </div>
-      <ToastContainer 
-       position="bottom-center"
-       autoClose={5000}
-       hideProgressBar={false}
-       newestOnTop={false}
-       closeOnClick
-       rtl={false}
-       pauseOnFocusLoss
-       draggable
-       pauseOnHover
-       />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 };
