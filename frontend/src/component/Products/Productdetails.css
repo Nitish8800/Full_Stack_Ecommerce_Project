@@ -9,8 +9,8 @@ input:checked ~ label{
 input{
   outline: none;
 }
-.CarouselImage{
-  width: 350px;
+img.CarouselImage{
+  width: 430px;
   height: 350px;
   object-fit: contain;
 }
