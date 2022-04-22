@@ -45,20 +45,26 @@
   }
   
   .paymentFormBtn {
-    border: none;
-    background-color: #3BB77E;
+   
+    background-color: #37b67a;
     color: white;
     font: 300 0.9vmax "Roboto";
     width: 100%;
     padding: 0.8vmax;
     cursor: pointer;
     transition: all 0.5s;
-    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
   }
   
+
+
+  
   .paymentFormBtn:hover {
-    background-color: #3BB77E;
+    background-color: rgb(161, 238, 167);
+    color: #141615;
   }
+
   
   @media screen and (max-width: 600px) {
     .paymentForm {

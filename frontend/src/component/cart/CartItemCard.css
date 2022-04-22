@@ -26,10 +26,18 @@
     color: rgba(24, 24, 24, 0.815);
   }
   
-  .CartItemCard > div > p {
-    color: #3BB77E;
-    font: 100 0.8vmax "Roboto";
-    cursor: pointer;
+  .CartItemCard > div > Button {
+  width:140px;
+  border-radius:5px;
+  color: red;
+  padding: 7px;
+  border: 1px solid black;
+  margin-top: 2px;
+  }
+  
+  .CartItemCard > div > Button:hover {
+  background-color: red;
+  color: white;
   }
   
   @media screen and (max-width: 600px) {

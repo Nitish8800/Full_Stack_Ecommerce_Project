@@ -13,6 +13,8 @@ import BottomTab from "../../more/BottomTab";
 import Loading from "../../more/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Button from "@mui/material/Button";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -115,7 +117,11 @@ const Home = () => {
               </div>
               <div>
                 <a href="#container">
-                  <button
+                  <Button
+                    variant="contained"
+                    color="error"
+                    size="medium"
+                    id="btn"
                     type="submit"
                     style={{
                       width: "180px",
@@ -130,7 +136,7 @@ const Home = () => {
                     className="Home__button"
                   >
                     SHOP NOW
-                  </button>
+                  </Button>
                 </a>
               </div>
             </div>

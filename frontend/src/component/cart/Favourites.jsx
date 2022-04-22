@@ -1,66 +1,69 @@
-import React from 'react';
+import React from "react";
 import "./Favourite.css";
 import { useSelector, useDispatch } from "react-redux";
-import {deleteFavouriteItemsToCart, deleteOfferFavouriteItemsToCart} from "../../actions/FavouriteAction"
+import {
+  deleteFavouriteItemsToCart,
+  deleteOfferFavouriteItemsToCart,
+} from "../../actions/FavouriteAction";
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/FavoriteBorder";
 import { Link } from "react-router-dom";
-import FavouriteItemsCard from './FavouriteItemsCard.jsx';
-import MetaData from '../../more/Metadata';
-import Loading from '../../more/Loader';
+import FavouriteItemsCard from "./FavouriteItemsCard.jsx";
+import MetaData from "../../more/Metadata";
+import Loading from "../../more/Loader";
 import { useState } from "react";
-import BottomTab from '../../more/BottomTab';
+import BottomTab from "../../more/BottomTab";
 
-const Favourite = ({history}) => {
-    const dispatch = useDispatch();
+const Favourite = ({ history }) => {
+  const dispatch = useDispatch();
 
-    const {loading} = useSelector(
-      (state) => state.productDetails
-    );
-    const { favouriteItems } = useSelector((state) => state.favourite);
-  
-      const deleteFavouriteItems = (id) => {
-        dispatch(deleteFavouriteItemsToCart(id));
-      };
-    
-    return (
-       <>
-       {loading ? (
-         <Loading />
-       ) : (
+  const { loading } = useSelector((state) => state.productDetails);
+  const { favouriteItems } = useSelector((state) => state.favourite);
+
+  const deleteFavouriteItems = (id) => {
+    dispatch(deleteFavouriteItemsToCart(id));
+  };
+
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
         <>
-        <MetaData title="Favourites Items" />
-        {favouriteItems.length === 0 ? (
+          <MetaData title="Favourites Items" />
+          {favouriteItems.length === 0 ? (
             <div className="emptyCart">
-            <RemoveShoppingCartIcon />
-            <Typography>No Items In Favourites</Typography>
-            <Link to="/products">View Products</Link>
-          <BottomTab />
-          </div>
-        ): (
+              <RemoveShoppingCartIcon />
+              <Typography>No Items In Favourites</Typography>
+              <Link to="/products">View Products</Link>
+              <BottomTab />
+            </div>
+          ) : (
             <>
               <div className="favouritesPage">
                 <div className="favouritesHeader">
-                <p>Product</p>
-                <p>Price</p>
-                <p>Stock Status</p>
-                <p>Action</p>
+                  <p>Product</p>
+                  <p>Price</p>
+                  <p>Stock Status</p>
+                  <p>Action</p>
                 </div>
                 {favouriteItems &&
-                favouriteItems.map((item) => (
+                  favouriteItems.map((item) => (
                     <div className="favouritesContainer" key={item.product}>
-                        <FavouriteItemsCard item={item} deleteFavouriteItems={deleteFavouriteItems} />
+                      <FavouriteItemsCard
+                        item={item}
+                        deleteFavouriteItems={deleteFavouriteItems}
+                      />
                     </div>
-                ))
-                }
-             <BottomTab />
+                  ))}
+                <BottomTab />
               </div>
             </>
-        )}
+          )}
         </>
-       )}
-       </>
-    )
-}
+      )}
+    </>
+  );
+};
 
-export default Favourite
+export default Favourite;

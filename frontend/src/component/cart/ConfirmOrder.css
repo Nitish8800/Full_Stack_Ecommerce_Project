@@ -1,0 +1,19 @@
+.shippingBtn {
+   
+    background-color: #37b67a;
+    color: white;
+    font: 300 1vmax "Roboto";
+    width: 100%;
+    padding: 1vmax;
+    cursor: pointer;
+    transition: all 0.6s;  
+    margin: 2vmax;
+    border: 1px solid black;
+    border-radius: 5px;
+
+  }
+  
+  .shippingBtn:hover {
+    background-color: rgb(161, 238, 167);
+    color: #141615;
+  }

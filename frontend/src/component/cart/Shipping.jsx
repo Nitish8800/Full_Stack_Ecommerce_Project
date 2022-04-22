@@ -71,12 +71,12 @@ const Shipping = ({ history }) => {
             <div>
               <PhoneIcon />
               <input
-                type="number"
+                type="tel"
+                maxLength="10"
                 placeholder="Phone Number"
                 required
                 value={phoneNo}
                 onChange={(e) => setPhoneNo(e.target.value)}
-                size="10"
               />
             </div>
 

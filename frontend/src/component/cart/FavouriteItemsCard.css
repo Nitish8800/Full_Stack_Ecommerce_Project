@@ -7,24 +7,35 @@
   }
   .FavouriteItemsCard > div > img {
     width: 5vmax;
+    margin: 0px 10px;
   }
-  .favouritesButton{
-    padding: 12px 25px;
-    border: none;
-    background-color: #3BB77E;
+  #favouritesButton{
+    padding: 5px 20px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: #19b46c;
     color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
     cursor: pointer;
   }
   
+  #favouritesButton:hover{
+    background-color: #fff;
+    color: #080808;
+  }
+
   .FavouriteItemsCard > div {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    margin:0px 20px;
   }
   
   .FavouriteItemsCard > div > a {
     font: 300 0.9vmax cursive;
     color: rgba(24, 24, 24, 0.815);
     text-decoration: none;
+    /* margin: 10px; */
   }
   
   .FavouriteItemsCard > div > span {
@@ -32,16 +43,31 @@
     color: rgba(24, 24, 24, 0.815);
   }
   
-  .FavouriteItemsCard > div > p {
-    color: #3BB77E;
+  #btn{
+    /* width:140px; */
+    padding: 5px 20px;
+    height: 40px;
+    border-radius:5px;
+    color: red;
+    /* padding: 7px; */
+    border: 1px solid black;
+    margin: 0px 10px;
     font: 100 0.8vmax "Roboto";
     cursor: pointer;
   }
+     #btn:hover{
+    background-color: red;
+    color: white;
+    }
+  
+
+
   
   @media screen and (max-width: 600px) {
     .FavouriteItemsCard {
       padding: 3vmax;
       height: 25vmax;
+    
     }
     .FavouriteItemsCard > img {
       width: 10vmax;
