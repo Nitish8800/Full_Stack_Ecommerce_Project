@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import "./FavouriteItemsCard.css";
 import { useSelector, useDispatch } from "react-redux";
 
-const FavouriteItemsCard = ({ item, deleteFavouriteItems }) => {
+const FavouriteItemsCard = ({ match, item, deleteFavouriteItems }) => {
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.productDetails);
 
@@ -41,7 +41,7 @@ const FavouriteItemsCard = ({ item, deleteFavouriteItems }) => {
       <div>
         <Button
           startIcon={<DeleteIcon />}
-          variant="contained"
+          variant="outlined"
           color="error"
           size="medium"
           id="btn"
