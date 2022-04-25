@@ -1,4 +1,6 @@
 # Full_Stack_Ecommerce_Project
+
+It is an online e-commerce website where users can shop for any product they need. and Admin Panel also there
 ![image](https://user-images.githubusercontent.com/81190422/165009345-a89e7a0e-e106-4350-abc6-b722ca3f6300.png)
 
 
@@ -8,12 +10,20 @@ In this project I am using = { M : MONGODB FOR DATABASE }  { E : EXPRESS JS FOR 
 Some important website links: ** NODE JS https://nodejs.org/en/ ** REACT JS https://reactjs.org/ ** NODEMAILER https://nodemailer.com/about/ ** EMAIL JS https://www.emailjs.com/
 
 ## About Website Details
-In this Website User can Authe
 
+In this E-ccomerce Website User can Login and Register with their email id Even they forget their password He can forget their password. He can type their email id and he will get link mail about foget password in his inbox and after click link it will redirect to reset password page. He can update their password there. in this Webite users can shop any product what they need. He can Update their profile also. In Product Details They are able to give review and ratings to product. In Products page users can Sort and Search the product. User can buy the product from cart page and he can also store the product in favourite and remove the product from favourite and cart page. After Checkout he can fill his addresss and Confirm the product get discount below $5000 products. For Payment  He can Type (4242 4242 4242 4242) in card details for buy the product. This Payment Data is Restoring the STRIPE SERVER. After Payment He can Watch Order Details 
+   
 
 ## Authentication Page
 ![image](https://user-images.githubusercontent.com/81190422/165008468-9884d1f1-0c74-4080-be83-bddecc0d39e9.png)
 ![image](https://user-images.githubusercontent.com/81190422/165008509-8e97d103-8f83-4174-b7e3-50b36f1d88b1.png)
+
+## Forget Password with their Email Id Notification
+![image](https://user-images.githubusercontent.com/81190422/165011080-ba3fda71-412d-4d13-99d0-f27daee61aca.png)
+![image](https://user-images.githubusercontent.com/81190422/165011146-4e5be492-7363-4685-8b0c-2b3dbc36dc2b.png)
+
+## Reset Password and Change Password
+![image](https://user-images.githubusercontent.com/81190422/165011169-f990a1fc-7ed2-40d1-909d-54be9572d453.png)
 
 
  ## Home Page
@@ -64,6 +74,13 @@ In this Website User can Authe
 
 ## Profile Page
 ![image](https://user-images.githubusercontent.com/81190422/165009394-360ccc75-30bb-4009-94c5-2bfabcb2c135.png)
+
+## User Update Profile Page 
+![image](https://user-images.githubusercontent.com/81190422/165010760-3c53360c-922d-4b99-a778-e31d74a2ff4b.png)
+
+## User Update Password Old Password to New Password 
+![image](https://user-images.githubusercontent.com/81190422/165010793-41bcebf7-5d77-467d-aabd-061fc9072daa.png)
+
 
 ## Report Us
 ![image](https://user-images.githubusercontent.com/81190422/165009420-d5c9b627-85fc-4e93-8b7e-e279d4c4904b.png)
