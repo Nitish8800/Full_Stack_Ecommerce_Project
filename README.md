@@ -126,7 +126,7 @@ In Admin Dashboard he can watch Total Amount of products which Delivered by User
 ![image](https://user-images.githubusercontent.com/81190422/165010485-5dffd855-af6e-4199-853c-c8238b651019.png)
 
 
-=======================================    CONNECTS WITH ME    ======================================             
+=========================  CONNECTS WITH ME  ====================             
              INSTAGRAM: https://www.instagram.com/_niku_7827/  
              YOUTUBE  : https://www.linkedin.com/in/nitish-kumar-50a564205/
                    LINKEDIN : https://www.linkedin.com/in/nitish-kumar-50a564205/
