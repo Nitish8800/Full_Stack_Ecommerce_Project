@@ -8,15 +8,17 @@ const cloudinary = require("cloudinary");
 
 // Register user
 exports.createUser = catchAsyncErrors(async (req, res, next) => {
-  const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+  const myCloud = await cloudinary.v2.uploader.upload_large(req.body.avatar, {
     folder: "avatars",
     width: 400,
+    height: 450,
     quality: 100,
-    fetch_format: "auto",
     crop: "scale",
   });
 
   const { name, email, password } = req.body;
+
+  console.log("myCloud", myCloud);
 
   const user = await User.create({
     name,
@@ -183,15 +185,18 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 
 // Update User Profile
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
-
+  let users = await User.findById(req.user.id);
   const newUserData = {
-    name: req.body.name,
-    email: req.body.email,
+    name: req.body.name ? req.body.name : users.name,
+    email: req.body.email ? req.body.email : users.email,
   };
 
-  if (req.body.avatar !== "") {
-    let users = await User.findById(req.user.id);
-
+  if (req.body.avatar == "") {
+    newUserData.avatar = {
+      public_id: users.avatar.public_id,
+      url: users.avatar.url,
+    };
+  } else if (req.body.avatar != "") {
     const imageId = users.avatar.public_id;
 
     await cloudinary.v2.uploader.destroy(imageId);
@@ -209,16 +214,16 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     };
   }
 
-
   let user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,
     runValidators: true,
-    useFindAndModify: false,
   });
 
-  res.status(200).json({
+  await user.save();
+
+  res.status(200).send({
     success: true,
-    user,
+    data: user,
   });
 });
 
