@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -38,16 +39,16 @@ const ProductDetails = ({ match, history }) => {
     myForm.set("comment", comment);
     myForm.set("productId", match.params.id);
 
-    {
-      isAuthenticated !== true ? history.push(`/login?redirect=/`) : <></>;
-    }
     dispatch(newReview(myForm));
 
-    {
-      comment.length === 0
-        ? toast.error("Please fill the comment box")
-        : toast.success("Review done successfully reload for watch it");
+    if (!isAuthenticated) {
+      history.push(`/login?redirect=/`);
     }
+
+    comment.length === 0
+      ? toast.error("Please fill the comment box")
+      : toast.success("Review done successfully reload for watch it");
+
     dispatch({ type: NEW_REVIEW_RESET });
   };
 

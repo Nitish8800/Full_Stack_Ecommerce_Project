@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import "./App.css";
 import Home from "./component/Home/Home";
 import WebFont from "webfontloader";
@@ -52,10 +52,12 @@ function App() {
 
   const [stripeApiKey, setStripeApiKey] = useState("");
 
-  async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v2/stripeapikey");
 
-    setStripeApiKey(data.stripeApiKey);
+  async function getStripeApiKey() {
+    if (isAuthenticated && user !== null) {
+      const { data } = await axios.get("/api/v2/stripeapikey");
+      setStripeApiKey(data.stripeApiKey);
+    }
   }
 
   useEffect(() => {
