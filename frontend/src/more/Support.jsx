@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import BottomTab from "./BottomTab.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import isEmail from "validator/lib/isEmail";
+// import isEmail from "validator/lib/isEmail";
 
 const Support = ({ history }) => {
   //   const [done, setDone] = useState(false);
@@ -23,34 +23,34 @@ const Support = ({ history }) => {
     toast.success("Thanks for your report we will reply it in very soon...");
 
     if (name && email && message && subject) {
-      if (isEmail(email)) {
-        // const responseData = {
-        //   name: name,
-        //   email: email,
-        //   message: message,
-        //   subject: subject,
-        // };
+      // if (isEmail(email)) {
+      //   // const responseData = {
+      //   //   name: name,
+      //   //   email: email,
+      //   //   message: message,
+      //   //   subject: subject,
+      //   // };
 
-        emailjs
-          .sendForm(
-            "service_1iayfr9",
-            "template_bnl918m",
-            e.target,
-            "CjBwHK5NvNJjd_50P"
-          )
-          .then(
-            (response) => {
-              console.log("SUCCESS!", response.status, response.text);
-              setName("");
-              setEmail("");
-              setMessage("");
-              setsubject("");
-            },
-            (err) => {
-              console.log("FAILED...", err);
-            }
-          );
-      }
+      //   emailjs
+      //     .sendForm(
+      //       "service_1iayfr9",
+      //       "template_bnl918m",
+      //       e.target,
+      //       "CjBwHK5NvNJjd_50P"
+      //     )
+      //     .then(
+      //       (response) => {
+      //         console.log("SUCCESS!", response.status, response.text);
+      //         setName("");
+      //         setEmail("");
+      //         setMessage("");
+      //         setsubject("");
+      //       },
+      //       (err) => {
+      //         console.log("FAILED...", err);
+      //       }
+      //     );
+      // }
     }
   };
 
