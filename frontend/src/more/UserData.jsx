@@ -72,7 +72,7 @@ const UserData = ({ user }) => {
       func: dashboard,
     });
   }
-  if (user.role === "Creator") {
+  if (user.role === "user") {
     options.unshift({
       icon: <DashboardIcon />,
       name: "Dashboard",
