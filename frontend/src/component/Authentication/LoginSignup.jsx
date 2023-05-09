@@ -124,6 +124,7 @@ const LoginSignup = ({ history, location }) => {
                     required
                     value={loginEmail}
                     onChange={(e) => setLoginEmail(e.target.value)}
+                    autocomplete="on"
                   />
                 </div>
                 <div className="loginPassword">
@@ -158,6 +159,7 @@ const LoginSignup = ({ history, location }) => {
                     name="name"
                     value={name}
                     onChange={registerDataChange}
+                    autocomplete="on"
                   />
                 </div>
                 <div className="signUpEmail">
@@ -169,6 +171,7 @@ const LoginSignup = ({ history, location }) => {
                     name="email"
                     value={email}
                     onChange={registerDataChange}
+                    autocomplete="on"
                   />
                 </div>
                 <div className="signUpPassword">

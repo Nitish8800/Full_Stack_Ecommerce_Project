@@ -65,20 +65,26 @@ const UserData = ({ user }) => {
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
   ];
 
-  if (user.role === "admin") {
+  if (user.role == "admin") {
     options.unshift({
       icon: <DashboardIcon />,
       name: "Dashboard",
       func: dashboard,
     });
-  }
-  if (user.role === "user") {
-    options.unshift({
+  } else {
+    options.shift({
       icon: <DashboardIcon />,
       name: "Dashboard",
       func: dashboard,
     });
   }
+  // if (user.role === "Creator") {
+  //   options.unshift({
+  //     icon: <DashboardIcon />,
+  //     name: "Dashboard",
+  //     func: dashboard,
+  //   });
+  // }
 
   function dashboard() {
     history.push("/dashboard");
