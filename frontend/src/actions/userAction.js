@@ -81,12 +81,11 @@ export const loadUser = () => async (dispatch) => {
     // eslint-disable-next-line
     const config = { headers: { "Content-Type": "application/json" } };
 
-
     const { data } = await axios.get(`/api/v2/me`);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
-    dispatch({ type: LOAD_USER_FAIL, payload: error.response.data?.message });
+    dispatch({ type: LOAD_USER_FAIL, payload: error });
   }
 };
 
